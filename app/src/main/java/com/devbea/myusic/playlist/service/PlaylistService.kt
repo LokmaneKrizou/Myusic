@@ -1,7 +1,6 @@
 package com.devbea.myusic.playlist.service
 
-import com.devbea.myusic.playlist.model.Playlist
-import com.devbea.myusic.playlist.api.PlaylistAPI
+import com.devbea.myusic.common.api.PlaylistAPI
 import com.devbea.myusic.playlist.model.PlaylistRaw
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch

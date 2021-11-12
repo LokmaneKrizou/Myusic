@@ -1,6 +1,6 @@
-package com.devbea.myusic.playlist.di
+package com.devbea.myusic.common.di
 
-import com.devbea.myusic.playlist.api.PlaylistAPI
+import com.devbea.myusic.common.api.PlaylistAPI
 import com.jakewharton.espresso.OkHttp3IdlingResource
 import dagger.Module
 import dagger.Provides

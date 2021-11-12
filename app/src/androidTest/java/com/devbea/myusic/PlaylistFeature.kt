@@ -6,14 +6,11 @@ import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import androidx.test.rule.ActivityTestRule
-import com.devbea.myusic.playlist.di.idlingResource
 import com.schibsted.spain.barista.assertion.BaristaRecyclerViewAssertions.assertRecyclerViewItemCount
 import com.schibsted.spain.barista.assertion.BaristaVisibilityAssertions.assertDisplayed
 import com.schibsted.spain.barista.assertion.BaristaVisibilityAssertions.assertNotDisplayed
 import com.schibsted.spain.barista.internal.matcher.DrawableMatcher.Companion.withDrawable
 import org.hamcrest.CoreMatchers.allOf
-import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 
@@ -88,5 +85,15 @@ class PlaylistFeature : BaseUITest() {
     }
 
 
-   
+    @Test
+    fun navigateToDetailsScreen() {
+        onView(
+            allOf(
+                withId(R.id.playlist_image),
+                isDescendantOfA(nthChildOf(withId(R.id.playlists_list), 0))
+            )
+        ).perform(click())
+
+        assertDisplayed(R.id.playlist_details_view)
+    }
 }

@@ -35,6 +35,11 @@ class PlaylistFragment : Fragment() {
     ): View {
         _binding = FragmentPlaylistBinding.inflate(inflater, container, false)
         setupViewModel()
+        listenToViewModel()
+        return binding.root
+    }
+
+    private fun listenToViewModel() {
         viewModel.loader.observe(viewLifecycleOwner) { loading ->
             binding.loader.isVisible = loading
         }
@@ -42,9 +47,7 @@ class PlaylistFragment : Fragment() {
         viewModel.playlists.observe(viewLifecycleOwner) { playlists ->
             playlists.getOrNull()?.let { setupList(binding.playlistsList, it) }
                 ?: run { Log.e("Error", "error") }
-
         }
-        return binding.root
     }
 
     private fun setupList(
@@ -54,7 +57,9 @@ class PlaylistFragment : Fragment() {
         with(view) {
             layoutManager = LinearLayoutManager(context)
             adapter = MyPlaylistRecyclerViewAdapter(playlists) { id ->
-                //TODO: Navigate to Playlist details
+                val action =
+                    PlaylistFragmentDirections.actionPlaylistFragmentToPlaylistDetailFragment(id)
+                findNavController().navigate(action)
             }
         }
     }

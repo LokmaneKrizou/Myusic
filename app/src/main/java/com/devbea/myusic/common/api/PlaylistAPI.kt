@@ -1,4 +1,4 @@
-package com.devbea.myusic.playlist.api
+package com.devbea.myusic.common.api
 
 import com.devbea.myusic.playlist.model.Playlist
 import com.devbea.myusic.playlist.model.PlaylistRaw

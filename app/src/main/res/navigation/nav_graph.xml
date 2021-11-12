@@ -10,6 +10,19 @@
         android:name="com.devbea.myusic.playlist.view.PlaylistFragment"
         android:label="fragment_playlist"
         tools:layout="@layout/fragment_playlist">
-         </fragment>
-<!--TODO: add destination to Playlist details fragment-->
+        <action
+            android:id="@+id/action_playlistFragment_to_playlistDetailFragment"
+            app:destination="@id/playlistDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/playlistDetailFragment"
+        android:name="com.devbea.myusic.PlaylistDetailFragment"
+        android:label="fragment_playlist_detail"
+        tools:layout="@layout/fragment_playlist_detail">
+        <argument
+            android:name="playlistId"
+            app:argType="string"
+            app:nullable="false" />
+
+    </fragment>
 </navigation>
