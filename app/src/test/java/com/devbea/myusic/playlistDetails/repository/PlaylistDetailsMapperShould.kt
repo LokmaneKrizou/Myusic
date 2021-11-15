@@ -23,7 +23,7 @@ class PlaylistDetailsMapperShould : BaseUnitTest() {
 
     @Test
     fun `keep Same Description`() {
-        assertEquals(playlistRaw.description, playlist?.description)
+        assertEquals(playlistRaw.details, playlist?.details)
 
     }
 }

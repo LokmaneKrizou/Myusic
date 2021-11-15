@@ -9,7 +9,7 @@ class PlaylistDetailsMapper @Inject constructor() :
     override fun invoke(playlistRaw: PlaylistDetailsRaw?): PlaylistDetails? {
         var playlist: PlaylistDetails? = null
         playlistRaw?.apply {
-            playlist = PlaylistDetails(id, name, description)
+            playlist = PlaylistDetails(id, name, details)
         } ?: run {
             playlist = null
         }
